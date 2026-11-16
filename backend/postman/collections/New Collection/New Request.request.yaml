@@ -1,0 +1,19 @@
+$kind: http-request
+url: http://localhost:3003/api/users/login
+method: POST
+body:
+  type: json
+  content: "{\r
+
+    \ \"username\": \"admin_test\",\r
+
+    \ \"email\": \"admin12@test.com\",\r
+
+    \ \"password\": \"Password120!\",\r
+
+    \ \"confirmPassword\": \"Password120!\",\r
+
+    \ \"roles\": \"admin\"\r
+
+    }"
+order: 1000
