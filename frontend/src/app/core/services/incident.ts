@@ -3,6 +3,7 @@ import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { observableToBeFn } from 'rxjs/internal/testing/TestScheduler';
+import { environment } from '../../../environments/environment';
 
 export interface IncidentModel {
     _id?: string;
@@ -20,7 +21,8 @@ export interface IncidentModel {
 export class IncidentService {
 
     private http = inject(HttpClient);
-    private apiURL = 'http://localhost:3003/api/incidents';
+    //private apiURL = 'http://localhost:3003/api/incidents';
+    private apiURL = `${environment.apiUrl}/users`
 
     // Get all requests
     //gets multiple records from the collection, so Observable<IncidentModel[]>
