@@ -1,0 +1,62 @@
+<div class="auth-container">
+    @if (errorMessage()) {
+    <div class="error-banner">{{ errorMessage() }}</div>
+    }
+
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input id="username" type="text" formControlName="username" placeholder="Enter your username" />
+
+            @if (registerForm.controls.username.touched && registerForm.controls.username.invalid) {
+            <small class="error-text">Username is required.</small>
+            }
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input id="email" type="email" formControlName="email" placeholder="Enter your email" />
+
+            @if (registerForm.controls.email.touched && registerForm.controls.email.invalid) {
+            <small class="error-text">Please enter a valid email address.</small>
+            }
+        </div>
+
+        <div class="form-group">
+            <label for="roles">Select Role</label>
+            <select formControlName="roles">
+                <option value="" disabled>-- Choose a role --</option>
+                <option value="user">User</option>
+                <option value="admin">Admin</option>
+            </select>
+
+            @if (registerForm.controls.roles.touched && registerForm.controls.roles.invalid) {
+            <small class="error-text">Please select a role.</small>
+            }
+        </div>
+
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input id="password" type="password" formControlName="password" placeholder="Enter your password" />
+
+            @if (registerForm.controls.password.touched && registerForm.controls.password.invalid) {
+            <small class="error-text">Password is required and must be at least 6 characters long.</small>
+            }
+        </div>
+
+        <div class="form-group">
+            <label for="confirmPassword">Confirm Password</label>
+            <input id="confirmPassword" type="password" formControlName="confirmPassword"
+                placeholder="Confirm your password" />
+
+            @if (registerForm.controls.confirmPassword.touched && registerForm.controls.confirmPassword.invalid) {
+            <small class="error-text">Passwords do not match.</small>
+            }
+        </div>
+
+
+        <button type="submit" [disabled]="isLoading()" class="btn btn-primary">
+            {{ isLoading() ? 'Registering...' : 'Register' }}
+        </button>
+    </form>
+</div>

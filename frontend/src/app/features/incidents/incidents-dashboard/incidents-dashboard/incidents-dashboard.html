@@ -1,0 +1,16 @@
+@if (isLoading$ | async) {
+<div class="absolute inset-0 bg-white/50 flex items-center justify-center z-50">
+    <p class="text-indigo-600 font-bold">Syncing with MongoDB...</p>
+</div>
+}
+
+<div class="flex justify-between items-center mb-6 mt-8">
+    <h1 class="text-2xl font-bold text-gray-800">Incident Management Dashboard</h1>
+
+    <button mat-raised-button color="primary" class="bg-indigo-600 text-white font-regular py-2 px-4 rounded"
+        (click)="openCreateIncidentModal()">
+        + New Incident
+    </button>
+</div>
+
+<app-incident-list [data1]="(incidentList$|async) || []"></app-incident-list>

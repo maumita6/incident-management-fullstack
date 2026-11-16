@@ -1,0 +1,33 @@
+<div class="auth-container">
+    @if (errorMessage()) {
+    <div class="error-banner">{{ errorMessage() }}</div>
+    }
+
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input id="email" type="email" formControlName="email" placeholder="you@example.com" />
+
+            @if (loginForm.controls.email.touched && loginForm.controls.email.invalid) {
+            <small class="error-text">Please enter a valid email address.</small>
+            }
+
+        </div>
+
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input id="password" type="password" formControlName="password" placeholder="••••••••" />
+            @if (loginForm.controls.password.touched && loginForm.controls.password.invalid) {
+            <small class="error-text">Password is required.</small>
+            }
+        </div>
+
+        <button type="submit" [disabled]="loginForm.invalid || isLoading()">
+            {{ isLoading() ? 'Signing in...' : 'Login' }}
+        </button>
+    </form>
+
+    <p class="switch-link">
+        Don't have an account? <a routerLink="/register">Register here</a>
+    </p>
+</div>

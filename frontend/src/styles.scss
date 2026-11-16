@@ -1,0 +1,19 @@
+@use '@angular/material' as mat;
+@import "tailwindcss";
+
+@include mat.core();
+
+// Update this block using the modern token structure
+$my-theme: mat.define-theme((color: (theme-type: light,
+                primary: mat.$azure-palette, // Replaces the legacy $indigo-palette
+                tertiary: mat.$rose-palette, // Replaces the legacy $pink-palette
+            )));
+
+html {
+    @include mat.all-component-themes($my-theme);
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}

@@ -1,0 +1,4 @@
+<div class="p-6 w-full mx-auto">
+    <app-mat-table [columns]="tableConfig" [data]="data1()" [showActions]="true" (deleteAction)="onDeleteRow($event)"
+        (edit)="onEditRow()" (view)="onViewRow($event)"></app-mat-table>
+</div>
