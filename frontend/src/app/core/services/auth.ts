@@ -29,11 +29,6 @@ export class AuthService {
     }
 
     private getLoggedUsers(): Observable<UserLoggedInProfile[]> {
-        /*return this.http.get<UserLoggedInProfile[]>(`${this.apiURL}/me`).pipe(
-            tap((users) => {
-                this.store.dispatch(AuthActions.getLoggedUsersSuccess({ users }));
-            })
-        );*/
         const savedUser = localStorage.getItem('user');
         if (savedUser) {
             const user: UserLoggedInProfile = JSON.parse(savedUser);

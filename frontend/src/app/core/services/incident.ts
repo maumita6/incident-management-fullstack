@@ -22,7 +22,7 @@ export class IncidentService {
 
     private http = inject(HttpClient);
     //private apiURL = 'http://localhost:3003/api/incidents';
-    private apiURL = `${environment.apiUrl}/users`
+    private apiURL = `${environment.apiUrl}/incidents`
 
     // Get all requests
     //gets multiple records from the collection, so Observable<IncidentModel[]>
