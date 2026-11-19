@@ -9,8 +9,9 @@ const app = express();
 
 const corsOptions = {
   origin: [
+    'https://incident-management-frontend-eight.vercel.app',
     'https://incident-management-fullstack.vercel.app',
-    'http://localhost:4200'  // testing Angular locally
+    'http://localhost:4200'
   ],
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
