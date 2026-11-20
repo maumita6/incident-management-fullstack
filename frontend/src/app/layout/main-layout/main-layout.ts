@@ -5,7 +5,7 @@ import { NavbarComponent } from './../../shared/nav-bar/nav-bar';
 import { IncidentsDashboard } from './../../features/incidents/incidents-dashboard/incidents-dashboard/incidents-dashboard';
 
 @Component({
-  imports: [NavbarComponent, IncidentsDashboard],
+  imports: [NavbarComponent, RouterOutlet],
   selector: 'app-main-layout',
   standalone: true,
   templateUrl: './main-layout.html',

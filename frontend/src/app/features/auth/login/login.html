@@ -22,12 +22,15 @@
             }
         </div>
 
-        <button type="submit" [disabled]="loginForm.invalid || isLoading()">
+        <button type="submit" [disabled]="loginForm.invalid || isLoading()"
+            class="w-full rounded-lg bg-indigo-600 px-5 py-2.5 text-sm font-regular text-white shadow-xs transition-colors hover:bg-indigo-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
             {{ isLoading() ? 'Signing in...' : 'Login' }}
         </button>
     </form>
 
     <p class="switch-link">
-        Don't have an account? <a routerLink="/register">Register here</a>
+        Don't have an account? <a routerLink="/register"
+            class="underline decoration-indigo-500 decoration-2 underline-offset-4 hover:decoration-indigo-700">Register
+            here</a>
     </p>
 </div>

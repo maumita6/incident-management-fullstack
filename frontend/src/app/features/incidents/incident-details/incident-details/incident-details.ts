@@ -1,5 +1,5 @@
 import { Component, input, inject, output, signal, ElementRef, ViewChild, OnInit, computed } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, Location } from '@angular/common';
 import { RouterModule, Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { MatTableComponent } from '../../../../shared/ui/table/mat-table/mat-table';
@@ -25,7 +25,6 @@ import { DatePipe } from '@angular/common';
 
 
 
-
 @Component({
   imports: [DatePipe, MatCardModule, MatIconModule, MatFormFieldModule, MatSelectModule, MatInputModule, ReactiveFormsModule, MatDivider],
   selector: 'app-incident-details',
@@ -38,6 +37,13 @@ export class IncidentDetails implements OnInit {
   private incidentService = inject(IncidentService);
   public store = inject(Store);
   private dialog = inject(MatDialog);
+  private location = inject(Location);
+
+  private readonly history = signal<string[]>([]);
+
+  readonly canGoBack = computed(() => this.history().length > 1);
+
+
 
   isEditMode = false;
   editForm!: FormGroup;
@@ -71,7 +77,9 @@ export class IncidentDetails implements OnInit {
   cancelEdit() {
 
   }
-
+  goBack(): void {
+    this.router.navigate(['/incidents']);
+  }
   saveChanges() {
     if (this.editForm.valid) {
       if (this.incident() && this.incident()?._id) {

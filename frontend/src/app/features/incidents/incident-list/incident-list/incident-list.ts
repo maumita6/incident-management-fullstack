@@ -39,14 +39,19 @@ export class IncidentListComponent {
     this.store.dispatch(IncidentActions.deleteIncident({ id }));
   }
 
-  onEditRow() {
-    console.log('edit clicked in dashboard ....');
+
+  onViewRow(row: any) {
+    console.log('VIEWS clicked, emitted value:', row);
+
+    const incidentId = row?._id || row?.id || row;
+
+    if (incidentId && typeof incidentId === 'string') {
+      this.router.navigate(['/incidents', incidentId]);
+    } else {
+      console.error('Invalid incident ID --- ', row);
+    }
   }
 
-  onViewRow(id: any) {
-    console.log('VIEWS clicked in dashboard ....');
-    this.router.navigate([`/incidents`, id]);
-  }
 
 
 

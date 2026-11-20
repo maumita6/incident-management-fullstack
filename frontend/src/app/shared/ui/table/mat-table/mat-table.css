@@ -1,0 +1,8 @@
+.mat-mdc-table {
+    background-color: transparent !important;
+    padding: 1em !important;
+}
+
+.mat-sort-header-content {
+    color: darkblue !important;
+}

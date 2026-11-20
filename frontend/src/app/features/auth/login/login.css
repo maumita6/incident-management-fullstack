@@ -1,59 +1,129 @@
+/* Optional: Apply a soft background gradient to the host/page wrapper */
+:host {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    padding: 1rem;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
 .auth-container {
+    width: 100%;
     max-width: 400px;
     margin: 2rem auto;
-    padding: 1.5rem;
-    border: 1px solid #ddd;
-    border-radius: 8px;
+    padding: 2.25rem;
+    /* Crisp white card with a soft top-to-bottom tint */
+    background: linear-gradient(180deg, #ffffff 0%, #fafbff 100%);
+    border: 1px solid rgba(226, 232, 240, 0.9);
+    border-radius: 16px;
+    /* Layered elevation shadow for depth */
+    box-shadow:
+        0 20px 25px -5px rgba(15, 23, 42, 0.08),
+        0 8px 10px -6px rgba(15, 23, 42, 0.04);
 }
 
 .form-group {
-    margin-bottom: 1rem;
+    margin-bottom: 1.25rem;
     display: flex;
     flex-direction: column;
 }
 
 label {
     font-weight: 600;
-    margin-bottom: 0.25rem;
+    font-size: 0.875rem;
+    color: #334155;
+    margin-bottom: 0.4rem;
 }
 
 input {
-    padding: 0.5rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    padding: 0.7rem 0.9rem;
+    font-size: 0.95rem;
+    color: #0f172a;
+    background-color: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    box-shadow: inset 0 1px 2px rgba(15, 23, 42, 0.04);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
+input:focus {
+    outline: none;
+    border-color: #6366f1;
+    /* Soft indigo glow on focus */
+    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.15);
+}
+
+/* Primary Submit Button */
 button {
     width: 100%;
-    padding: 0.75rem;
-    background: #1976d2;
-    color: white;
+    margin-top: 0.5rem;
+    padding: 0.75rem 1.25rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #ffffff;
+    /* Vibrant indigo-to-violet gradient */
+    background: linear-gradient(135deg, #4f46e5 0%, #6366f1 100%);
     border: none;
-    border-radius: 4px;
+    border-radius: 8px;
     cursor: pointer;
+    box-shadow: 0 4px 12px rgba(79, 70, 229, 0.28);
+    transition: transform 0.15s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+button:hover:not(:disabled) {
+    background: linear-gradient(135deg, #4338ca 0%, #4f46e5 100%);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(79, 70, 229, 0.36);
+}
+
+button:active:not(:disabled) {
+    transform: translateY(0);
+    box-shadow: 0 2px 6px rgba(79, 70, 229, 0.25);
 }
 
 button:disabled {
-    background: #90caf9;
+    background: linear-gradient(135deg, #c7d2fe 0%, #ddd6fe 100%);
+    color: #6366f1;
+    box-shadow: none;
     cursor: not-allowed;
 }
 
 .error-banner {
-    background: #ffebee;
-    color: #c62828;
-    padding: 0.75rem;
-    border-radius: 4px;
-    margin-bottom: 1rem;
+    background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%);
+    color: #b91c1c;
+    border: 1px solid #fecaca;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    margin-bottom: 1.25rem;
+    box-shadow: 0 2px 6px rgba(185, 28, 28, 0.06);
 }
 
 .error-text {
-    color: #c62828;
+    color: #dc2626;
     font-size: 0.8rem;
-    margin-top: 0.25rem;
+    font-weight: 500;
+    margin-top: 0.35rem;
 }
 
 .switch-link {
-    margin-top: 1rem;
+    margin-top: 1.5rem;
     text-align: center;
     font-size: 0.9rem;
+    color: #64748b;
+}
+
+.switch-link a {
+    color: #4f46e5;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.15s ease;
+}
+
+.switch-link a:hover {
+    color: #3730a3;
+    text-decoration: underline;
 }

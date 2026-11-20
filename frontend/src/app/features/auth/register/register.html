@@ -55,8 +55,14 @@
         </div>
 
 
-        <button type="submit" [disabled]="isLoading()" class="btn btn-primary">
+        <button type="submit" [disabled]="isLoading()"
+            class="rounded-lg bg-indigo-600 px-5 py-2.5 text-sm font-regular text-white shadow-xs transition-colors hover:bg-indigo-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
             {{ isLoading() ? 'Registering...' : 'Register' }}
         </button>
     </form>
+    <p class="switch-link">
+        Already have an account? <a routerLink="/login"
+            class="underline decoration-violet-500 decoration-2 underline-offset-4 hover:decoration-indigo-700">Login
+            here</a>
+    </p>
 </div>

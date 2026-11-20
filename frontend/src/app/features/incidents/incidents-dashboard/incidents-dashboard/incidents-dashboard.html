@@ -1,16 +1,25 @@
-@if (isLoading$ | async) {
-<div class="absolute inset-0 bg-white/50 flex items-center justify-center z-50">
-    <p class="text-indigo-600 font-bold">Syncing with MongoDB...</p>
-</div>
-}
+<header class="dashboard-header">
+    <div class="header-content">
+        <div class="title-group">
+            <div class="title-row">
+                <h1>Incident Management Dashboard</h1>
 
-<div class="flex justify-between items-center mb-6 mt-8">
-    <h1 class="text-2xl font-bold text-gray-800">Incident Management Dashboard</h1>
+                @if (isLoading$ | async) {
+                <div class="sync-badge">
+                    <span class="pulse-dot"></span>
+                    <span>Syncing with MongoDB...</span>
+                </div>
+                }
+            </div>
+            <p class="subtitle">Monitor, track, and resolve system incidents in real time.</p>
+        </div>
 
-    <button mat-raised-button color="primary" class="bg-indigo-600 text-white font-regular py-2 px-4 rounded"
-        (click)="openCreateIncidentModal()">
-        + New Incident
-    </button>
-</div>
+        <button type="button" class="btn-primary" (click)="openCreateIncidentModal()">
+            <span class="plus-icon">+</span>
+            <span>New Incident</span>
+        </button>
+    </div>
+</header>
+
 
 <app-incident-list [data1]="(incidentList$|async) || []"></app-incident-list>

@@ -33,8 +33,8 @@ export const routes = [
             {
                 path: 'incidents/:id',
                 loadComponent: () => import('./features/incidents/incident-details/incident-details/incident-details').then(m => m.IncidentDetails)
-            },
-            { path: '', redirectTo: 'login', pathMatch: 'full' }
+            }
+            // { path: '', redirectTo: 'login', pathMatch: 'full' }
         ]
     }
 ];
